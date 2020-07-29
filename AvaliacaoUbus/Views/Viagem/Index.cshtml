@@ -1,0 +1,96 @@
+﻿@model List<Data.Entities.Viagem>
+@{
+    var Status = ViewBag.Status;
+}
+
+<div id="CabecalhoPesquisa">
+    <div class="filters">
+        <div class="FormGroupCadastro">
+            <label class="ControlLabel">Data da Viagem</label>
+            <input id="DataPesquisa" class="form-input" type="date" />
+        </div>
+        <div class="FormGroupCadastro">
+            <label class="ControlLabel">Status</label>
+            <select id="StatusPesquisa" asp-items="@Status" class="form-input"></select>
+        </div>
+        <div class="FormGroup">
+            <a id="BtnPesquisa" onclick="consultaViagens()">
+                <img class="icon" src="/images/search-solid.svg" />
+            </a>
+        </div>
+    </div>
+
+    <div class="filters">
+        <div class="form-button" id="BtnAtualizar">
+            <a onclick="return AtualizaViagem()">
+                <img class="icon" src="/images/sync-alt-solid.svg">
+                <label>Atualizar</label>
+            </a>
+        </div>
+        <div class="form-button" id="BtnNovoRegistro">
+            <a asp-controller="Viagem" asp-action="Create">
+                <img class="icon" src="/images/Plus.svg" alt="Novo Registro">
+                <label>Novo Registro</label>
+            </a>
+        </div>
+    </div>
+
+
+</div>
+<div id="Itens">
+    @if (Model != null)
+    {
+        foreach (var item in Model)
+        {
+            if (item.Status == 2)
+            {
+                <div id="ConteudoViagem">
+                    <div class="form-iconButton">
+                        <a href="Viagem/Update/@item.Id" id="BtnEdit">
+                            <img class="icon" src="/images/edit-solid.svg" />
+                        </a>
+                    </div>
+                    <div class="form-iconButton">
+                        <button id="BtnDelete" onclick="confirmaExclusaoSemValidacao(this, 'Confirma?', 'Sim', 'Nao', 'Viagem/Delete/@item.Id')">
+                            <img class="icon" src="/images/trash-alt-regular.svg" />
+                        </button>
+                    </div>
+                    <div class="FormText">
+                        <p>
+                            Rota: @item.OrigemDescricao - @item.DestinoDescricao&nbsp&nbspHorário: @item.HoraPartida às
+                            @item.HoraChegada&nbsp&nbspData: @item.DataViagem.Date.ToString("dd/MM/yyyy")&nbsp&nbspMotorista: @item.NomeFuncionario
+                        </p>
+                    </div>
+                    <div class="status" id="Finalizado"></div>
+                </div>
+            }
+            else
+            {
+                <div id="ConteudoViagem">
+                    <div class="form-iconButton">
+                        <a href="Viagem/Update/@item.Id" id="BtnEdit">
+                            <img class="icon" src="/images/edit-solid.svg" />
+                        </a>
+                    </div>
+                    <div class="form-iconButton">
+                        <button id="BtnDelete" onclick="confirmaExclusaoSemValidacao(this, 'Confirma?', 'Sim', 'Nao', 'Viagem/Delete/@item.Id')">
+                            <img class="icon" src="/images/trash-alt-regular.svg" />
+                        </button>
+                    </div>
+                    <div class="FormText">
+                        <p>
+                            Rota: @item.OrigemDescricao - @item.DestinoDescricao&nbsp&nbspHorário: @item.HoraPartida às
+                            @item.HoraChegada&nbsp&nbspData: @item.DataViagem.Date.ToString("dd/MM/yyyy")&nbsp&nbspMotorista: @item.NomeFuncionario
+                        </p>
+                    </div>
+                    <div class="status" id="Disponivel"></div>
+                </div>
+            }
+        }
+    }
+</div>
+
+@section Scripts{
+    <link href="~/css/viagem.css" rel="stylesheet" />
+    <script src="~/js/site.js" asp-append-version="true"></script>
+}

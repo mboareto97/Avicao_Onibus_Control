@@ -1,0 +1,61 @@
+﻿@model Data.Entities.Veiculo
+
+<div id="FormCadastro">
+    <form asp-action="Edit" id="submit">
+
+        @if (Model.Id == 0)
+        {
+            <input type="hidden" name="operacao" value="inclusao" />
+        }
+        else
+        {
+            <input type="hidden" name="operacao" value="alteracao" />
+        }
+
+        <input asp-for="Id" type="hidden" />
+        <input id="id" type="hidden" value="@Model.Id" />
+        <input id="ItensVeiculo" asp-for="ItensVeiculo" type="hidden" />
+
+        <div class="FormRow">
+            <div class="FormGroupCadastro">
+                <label class="ControlLabel">Marca</label>
+                <input asp-for="Marca" class="form-input" type="text" />
+                @Html.ValidationMessage("Marca", new { @class = "text-danger" })
+            </div>
+            <div class="FormGroupCadastro">
+                <label class="ControlLabel">Modelo</label>
+                <input asp-for="Modelo" class="form-input" type="text" />
+                @Html.ValidationMessage("Modelo", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <br />
+        @if (Model.Id > 0)
+        {
+            <div class="FormRow">
+                <div class="FormGroupCadastro">
+                    <label class="ControlLabel">Itens Adicionais</label>
+                    @foreach (var item in ViewBag.ItensAdicionais)
+                    {
+                        <label class="checkLabel ControlLabel" style="margin-top: 8px;">
+                            @item.Text
+                            <input type="checkbox" id="check_@item.Value.ToString()" />
+                            <span class="checkmark"></span>
+                        </label>
+                    }
+                </div>
+            </div>
+        }
+
+        <div class="footer">
+            <input asp-action="Index" class="form-button" id="BtnVoltar" type="submit" value="Voltar" />
+            <input asp-action="Edit" class="form-button" id="BtnSalvar" type="submit" value="Salvar" onclick="SalvaItemAdicional();" />
+        </div>
+    </form>
+</div>
+
+@section Scripts{
+    <link href="~/css/viagem.css" rel="stylesheet" />
+    <script src="~/js/form.js" asp-append-version="true"></script>
+}
+

@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@ViewData["Title"] - Aviação Ônibus</title>
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <link rel="stylesheet" href="~/css/viagem.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.9/sweetalert2.min.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</head>
+<body>
+    @*<div id="Header">
+            <h2>Aviação Ônibus</h2>
+        </div>*@
+
+    <nav class="nav flex-row">
+        <div class="nav-menu">
+            <div class="nav-brand">
+                <a href="#" class="text-white">Aviação Ônibus</a>
+            </div>
+        </div>
+        <div class="toggle-collapse">
+            <div class="toggle-icons text-white">
+                <span class="myIcon"></span>
+            </div>
+        </div>
+        <div>
+            <ul class="nav-items flex-row">
+                <li class="nav-link">
+                    <a href="/Viagem" class="text-white">Viagem</a>
+                </li>
+                <li class="nav-link">
+                    <a href="/Veiculo" class="text-white">Veículo</a>
+                </li>
+                <li class="nav-link">
+                    <a href="/Funcionario" class="text-white">Funcionário</a>
+                </li>
+                <li class="nav-link">
+                    <a href="/ItensAdicionais" class="text-white">Itens Adicionais</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div id="ConteudoInterno">
+        @RenderBody()
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

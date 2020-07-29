@@ -1,0 +1,39 @@
+﻿@model List<string>
+
+<div id="CabecalhoPesquisa">    
+    <div class="filters">
+        <div class="FormGroupCadastro">
+            <label class="ControlLabel">Origem</label>
+            <select id="OrigemId" asp-items="@ViewBag.Municipios" class="form-input"></select>
+        </div>
+        <div class="FormGroupCadastro">
+            <label class="ControlLabel">Destino</label>
+            <select id="DestinoId" asp-items="@ViewBag.Municipios" class="form-input"></select>
+        </div>
+        <div class="FormGroup">
+            <a id="BtnPesquisa" onclick="consultaItensAdicionais()">
+                <img class="icon" src="/images/search-solid.svg" />
+            </a>
+        </div>
+    </div>
+</div>
+<div id="Itens">
+    @if (Model != null)
+    {
+        foreach (var item in Model)
+        {
+            <div id="ConteudoViagem">
+                <div class="FormText">
+                    <p>
+                        Item Adicional: @item
+                    </p>
+                </div>
+            </div>
+        }
+    }
+</div>
+
+@section Scripts{
+    <link href="~/css/viagem.css" rel="stylesheet" />
+    <script src="~/js/site.js" asp-append-version="true"></script>
+}

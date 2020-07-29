@@ -1,0 +1,106 @@
+﻿@model Data.Entities.Viagem
+
+<div id="FormCadastro">
+    <form asp-action="Edit" id="submit">
+
+        @if (Model.Id == 0)
+        {
+            <input type="hidden" name="operacao" value="inclusao" />
+        }
+        else
+        {
+            <input type="hidden" name="operacao" value="alteracao" />
+        }
+
+        <input asp-for="Id" type="hidden" />
+        <input id="id" type="hidden" value="@Model.Id" />
+
+        <div class="FormRow">
+            <div class="FormGroupCadastro">
+                <label class="ControlLabel">Origem</label>
+                <select asp-for="OrigemId" asp-items="@ViewBag.Municipios" class="form-input"></select>
+                @Html.ValidationMessage("OrigemId", new { @class = "text-danger" })
+            </div>
+            <div class="FormGroupCadastro">
+                <label class="ControlLabel">Destino</label>
+                <select asp-for="DestinoId" asp-items="@ViewBag.Municipios" class="form-input"></select>
+                @Html.ValidationMessage("DestinoId", new { @class = "text-danger" })
+            </div>
+            <div class="FormGroupCadastro">
+                <label class="ControlLabel">Horário da Partida</label>
+                <input asp-for="HoraPartida" class="form-input" type="time" />
+                @Html.ValidationMessage("HoraPartida", new { @class = "text-danger" })
+            </div>
+            <div class="FormGroupCadastro">
+                <label class="ControlLabel">Horário da Chegada</label>
+                <input asp-for="HoraChegada" class="form-input" type="time" />
+                @Html.ValidationMessage("HoraChegada", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="FormRow">
+            <div class="FormGroupCadastro">
+                <label class="ControlLabel">Veículo</label>
+                <select id="VeiculoId" asp-for="VeiculoId" asp-items="@ViewBag.Veiculos" class="form-input">
+                </select>
+                @Html.ValidationMessage("VeiculoId", new { @class = "text-danger" })
+            </div>
+
+            <div class="FormGroupCadastro">
+                <label class="ControlLabel">Motorista</label>
+                <select asp-for="FuncionarioId" asp-items="@ViewBag.Funcionarios" class="form-input">
+                </select>
+            </div>
+
+            <div class="FormGroupCadastro">
+                <label class="ControlLabel">Posição do Veículo</label>
+                <input asp-for="PosicaoVeiculo" class="form-input" type="text" />
+            </div>
+
+            <div class="FormGroupCadastro">
+                <label class="ControlLabel">Status</label>
+                <select asp-for="Status" asp-items="@ViewBag.Status" class="form-input">
+                </select>
+                @Html.ValidationMessage("Status", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="FormRow">
+            <div class="FormGroupCadastro">
+                <label class="ControlLabel">Data da Viagem</label>
+                <input asp-for="DataViagem" class="form-input" type="date" />
+                @Html.ValidationMessage("DataViagem", new { @class = "text-danger" })
+            </div>
+
+            <div class="FormGroupCadastro">
+                <label class="ControlLabel">Valor</label>
+                <input asp-for="Valor" class="form-input" type="text" />
+                @Html.ValidationMessage("Valor", new { @class = "text-danger" })
+            </div>
+        </div>
+        @*<br />
+        <div class="FormRow">
+            <div class="FormGroupCadastro">
+                <label class="ControlLabel">Itens Adicionais</label>
+                @foreach (var item in ViewBag.ItensAdicionais)
+                {
+                    <label class="checkLabel ControlLabel" style="margin-top: 8px;">
+                        @item.Text
+                        <input type="checkbox" id="check_@item.Value.ToString()" />
+                        <span class="checkmark"></span>
+                    </label>
+                }
+            </div>
+        </div>*@
+
+        <div class="footer">
+            <input asp-action="Index" class="form-button" id="BtnVoltar" type="submit" value="Voltar" />
+            <input asp-action="Edit" class="form-button" id="BtnSalvar" type="submit" value="Salvar"/>
+        </div>
+    </form>
+</div>
+
+@section Scripts{
+    <link href="~/css/viagem.css" rel="stylesheet" />
+}
+

@@ -1,0 +1,42 @@
+﻿@model List<Data.Entities.Veiculo>
+
+<div id="CabecalhoPesquisa">    
+    <div class="filters">        
+        <div class="form-button" id="BtnNovoRegistro">
+            <a asp-controller="Veiculo" asp-action="Create">
+                <img class="icon" src="/images/Plus.svg" alt="Novo Registro">
+                <label>Novo Registro</label>
+            </a>
+        </div>
+    </div>
+</div>
+<div id="Itens">
+    @if (Model != null)
+    {
+        foreach (var item in Model)
+        {
+            <div id="ConteudoViagem">
+                <div class="form-iconButton">
+                    <a asp-controller="Veiculo" asp-action="Update" asp-route-id="@item.Id" id="BtnEdit">
+                        <img class="icon" src="/images/edit-solid.svg" />
+                    </a>
+                </div>
+                <div class="form-iconButton">
+                    <button id="BtnDelete" onclick="confirmaExclusaoSemValidacao(this, 'Confirma?', 'Sim', 'Nao', 'Veiculo/Delete/@item.Id')">
+                        <img class="icon" src="/images/trash-alt-regular.svg" />
+                    </button>
+                </div>
+                <div class="FormText">
+                    <p>
+                        Marca: @item.Marca &nbsp&nbsp Modelo: @item.Modelo 
+                    </p>
+                </div>
+            </div>
+        }
+    }
+</div>
+
+@section Scripts{
+    <link href="~/css/viagem.css" rel="stylesheet" />
+    <script src="~/js/site.js" asp-append-version="true"></script>
+}

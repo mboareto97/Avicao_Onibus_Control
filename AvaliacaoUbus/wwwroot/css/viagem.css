@@ -1,0 +1,433 @@
+﻿body {
+    margin: 0px;
+    background-color: #d2d2d2;
+}
+
+#Header {
+    height: 80px;
+    background-color: #3a59d8;
+    padding: 1px 30px;
+}
+
+#ConteudoInterno {
+    padding: 32px 32px 32px 32px;
+}
+
+#Itens {
+    padding: 140px 270px 0px;
+}
+
+#ConteudoViagem {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    padding: 0px 0px 0px 34px;
+    margin-bottom: 40px;
+    background-color: white;
+    border-radius: 34px;
+    font-family: roboto;
+    font-size: 25px;
+    text-align: left;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+#CabecalhoPesquisa {
+    padding: 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.form-input {
+    position: relative;
+    padding: 0px 2px;
+    height: 55px;
+    min-width: 300px;
+    margin: 8px 32px 0px 0px;
+    border-radius: 18px;
+    border: 1px solid #4d4d4d;
+    text-align: center;
+    font-family: roboto;
+    font-size: 25px;
+}
+
+.form-button {
+    display: flex;
+    align-items: center;
+    max-height: 55px;
+    background-color: #4d4d4d;
+    border-radius: 18px;
+    font-family: roboto;
+    font-size: 25px;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+    .form-button:hover {
+        background-color: #616161;
+    }
+
+#BtnNovoRegistro {
+    min-width: 215px;
+    margin-top: 8px;
+}
+
+#BtnAtualizar {
+    min-width: 150px;
+    margin-right: 16px;
+    margin-top: 8px;
+}
+
+.form-button label {
+    font-family: roboto;
+    font-style: normal;
+    font-size: 25px;
+    color: white;
+    bottom: 8px;
+    cursor: pointer;
+}
+
+.form-button a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+#BtnSalvar {
+    min-width: 70px;
+    margin-right: 16px;
+}
+
+#BtnVoltar {
+    min-width: 70px;
+    margin-right: 16px;
+}
+
+#BtnDelete {
+    border: none;
+    background-color: transparent;
+}
+
+.status {
+    width: 34px;
+    border-radius: 0px 34px 34px 0px;
+    float: right;
+    margin-left: 10px;
+    margin-left: 10px;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+#Disponivel {
+    background-color: green;
+}
+
+#EmProgresso {
+    background-color: orange;
+}
+
+#Finalizado {
+    background-color: red;
+}
+
+#FormCadastro {
+    display: flex;
+    padding: 40px 174px 119px 222px;
+}
+
+.FormGroup {
+    max-width: 300px;
+    margin-right: 48px;
+}
+
+.FormGroupCadastro {
+    max-width: 300px;
+    min-height: 135px;
+    margin-right: 48px;
+}
+
+.FormRow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+.ControlLabel {
+    font-family: roboto;
+    font-size: 25px;
+    color: #4d4d4d;
+}
+
+.checkLabel {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+    /* Hide the browser's default checkbox */
+    .checkLabel input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+    }
+
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #fff;
+}
+
+/* On mouse-over, add a grey background color */
+.checkLabel:hover input ~ .checkmark {
+    background-color: #4d4d4d;
+}
+
+/* When the checkbox is checked, add a blue background */
+.checkLabel input:checked ~ .checkmark {
+    background-color: #3a59d8;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkLabel:after {
+    content: '';
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.checkLabel input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.checkLabel .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    position: fixed;
+    background-color: darkgray;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    height: 119px;
+}
+
+#Header h2 {
+    font-family: roboto;
+    font-size: 25px;
+    color: white;
+}
+
+.text-danger {
+    font-family: roboto;
+    color: red;
+}
+
+.icon {
+    width: 35px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+#BtnPesquisa {
+    top: 5px;
+    position: relative;
+    cursor: pointer;
+}
+
+.form-iconButton {
+    position: relative;
+    display: inline-block;
+    margin-right: 16px;
+}
+
+.FormText {
+    position: relative;
+    padding-right: 50px;
+    display: inline-block;
+    font-size: 20px;
+}
+
+/*Nav Menu*/
+.flex-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+a {
+    text-decoration: none;
+}
+
+.text-white {
+    color: white;
+}
+
+nav {
+    padding: 0.2rem;
+    background-color: #3a59d8;
+    position: relative;
+    justify-content: space-between;
+    height: 0rem;
+    min-height: 7vh;
+    overflow: hidden;
+    transition: height 1s cubic-bezier(0.26, -0.01, 0, 1.01);
+}
+
+nav .nav-brand a {
+    display: block;
+    padding: 1rem 1rem;
+    font-family: roboto;
+    font-size: 1.6rem;
+}
+
+nav .nav-items {
+    list-style-type: none;
+    margin: 0;
+}
+
+nav .nav-items .nav-link {
+    padding: 1.3rem 1rem;
+    font-family: roboto;
+    font-size: 1.1rem;
+}
+
+nav .nav-items .nav-link:hover {
+    background: #4964d1;
+}
+
+nav .toggle-collapse {
+    position: absolute;
+    top: 0%;
+    width: 100%;
+    cursor: pointer;
+    display: none;
+}
+
+nav .toggle-collapse .toggle-icons {
+    display: flex;
+    justify-content: flex-end;
+    padding: 1.5rem 2rem;
+}
+
+nav .toggle-collapse .toggle-icons i {
+    font-size: 1.4rem;
+}
+
+.collapse {
+    height: 0rem;
+}
+
+.myIcon,
+.myIcon::before,
+.myIcon::after {
+    position: relative;
+    width: 10px;
+    border: 2px solid white;
+    border-radius: 3rem;
+    display: inline-block;
+    transition: all 0.8s ease;
+    transition-property: width, left;
+}
+
+.myIcon::before {
+    content: ' ';
+    position: absolute;
+    top: 5px;
+    width: 20px;
+    left: -12px;
+}
+
+.myIcon::after {
+    content: ' ';
+    position: absolute;
+    top: 12px;
+    left: -2px;
+}
+
+.toggle-click,
+.toggle-click::before,
+.toggle-click::after {
+    width: 20px;
+}
+
+.toggle-click::before {
+    left: -2px;
+}
+
+@media (max-width: 1000px) {
+    #Itens {
+        padding: 140px 100px 0px;
+    }
+}
+
+@media (max-width: 736px) {
+    #Itens {
+        padding: 140px 0px 0px;
+    }
+
+    #CabecalhoPesquisa {
+        flex-wrap: wrap;
+    }
+
+    #BtnNovoRegistro {
+        margin-top: 8px;
+    }
+
+    nav .nav-items {
+        flex-direction: column;
+    }
+
+    nav {
+        flex-direction: column !important;
+        display: block !important;
+    }
+
+    nav .toggle-collapse {
+        display: initial;
+    }
+
+    .collapse {
+        height: 20rem;
+    }
+}
